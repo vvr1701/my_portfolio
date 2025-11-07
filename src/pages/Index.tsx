@@ -12,7 +12,10 @@ import {
   GraduationCap,
   Code2,
   ExternalLink,
-  Download
+  Download,
+  Instagram,
+  Video,
+  Camera
 } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
@@ -136,6 +139,15 @@ const Index = () => {
                 >
                   <Github className="w-5 h-5" />
                   <span className="text-sm">GitHub</span>
+                </a>
+                <a 
+                  href="https://instagram.com/vishnuvardhan1701"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-white transition-smooth flex items-center gap-2"
+                >
+                  <Instagram className="w-5 h-5" />
+                  <span className="text-sm">Instagram</span>
                 </a>
               </div>
             </div>
@@ -331,53 +343,66 @@ const Index = () => {
             Education
           </h2>
           <Card className="p-8 shadow-card hover-lift">
-            <div className="flex items-start gap-4">
-              <div className="p-3 gradient-accent rounded-lg">
-                <GraduationCap className="w-6 h-6 text-white" />
-              </div>
-              <div className="flex-1">
-                <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground">
-                      B.Tech in Computer Science Engineering
-                    </h3>
-                    <p className="text-lg text-accent font-semibold">
-                      KL University, Hyderabad
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <Badge variant="secondary" className="mb-2">
-                      Expected 2027
-                    </Badge>
-                    <p className="text-2xl font-bold text-primary">
-                      CGPA: 9.0/10
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-4">
-                  <p className="font-semibold text-foreground mb-2">Core Coursework:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      "Data Structures & Algorithms",
-                      "Database Management Systems",
-                      "Operating Systems",
-                      "Object-Oriented Programming",
-                      "Computer Networks",
-                      "Software Engineering"
-                    ].map((course, index) => (
-                      <Badge 
-                        key={index}
-                        variant="outline"
-                        className="text-sm"
-                      >
-                        {course}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+...
           </Card>
+        </div>
+      </section>
+
+      {/* Hobbies Section */}
+      <section className="py-20 px-4 bg-muted/30" id="hobbies">
+        <div className="container max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12 text-center">
+            Hobbies & Interests
+          </h2>
+          <div className="grid md:grid-cols-1 gap-6 max-w-3xl mx-auto">
+            <Card className="p-8 shadow-card hover-lift hover-glow transition-smooth">
+              <div className="flex flex-col items-center text-center space-y-6">
+                <div className="relative">
+                  <div className="absolute inset-0 gradient-accent rounded-full blur-xl opacity-30"></div>
+                  <div className="relative p-6 gradient-accent rounded-full">
+                    <Video className="w-12 h-12 text-white" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">
+                    Content Creator
+                  </h3>
+                  <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+                    Creating engaging content around technology, programming, and software development. 
+                    Sharing knowledge and experiences through visual storytelling and educational posts.
+                  </p>
+                </div>
+                <div className="flex gap-4 pt-4">
+                  <a 
+                    href="https://instagram.com/vishnuvardhan1701"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group"
+                  >
+                    <Button variant="hero" size="lg" className="gap-2">
+                      <Instagram className="w-5 h-5" />
+                      Follow on Instagram
+                      <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-smooth" />
+                    </Button>
+                  </a>
+                </div>
+                <div className="flex items-center gap-6 text-muted-foreground pt-4">
+                  <div className="flex items-center gap-2">
+                    <Camera className="w-5 h-5 text-primary" />
+                    <span>Tech Content</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Code2 className="w-5 h-5 text-primary" />
+                    <span>Programming Tips</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Video className="w-5 h-5 text-primary" />
+                    <span>Tutorial Videos</span>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
         </div>
       </section>
 
@@ -429,6 +454,18 @@ const Index = () => {
               <p className="text-white font-semibold mb-1">GitHub</p>
               <p className="text-white/70 text-sm flex items-center justify-center gap-1">
                 Projects <ExternalLink className="w-3 h-3" />
+              </p>
+            </a>
+            <a 
+              href="https://instagram.com/vishnuvardhan1701"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-smooth group"
+            >
+              <Instagram className="w-8 h-8 text-white mx-auto mb-3 group-hover:scale-110 transition-smooth" />
+              <p className="text-white font-semibold mb-1">Instagram</p>
+              <p className="text-white/70 text-sm flex items-center justify-center gap-1">
+                @vishnuvardhan1701 <ExternalLink className="w-3 h-3" />
               </p>
             </a>
           </div>
