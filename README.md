@@ -1,6 +1,6 @@
 # Vishnu Vardhan Reddy - Backend Developer Portfolio
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS showcasing backend development skills and projects.
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS showcasing frontend development skills and projects.
 
 ## Technologies Used
 
@@ -65,10 +65,30 @@ src/
 
 ## Deployment
 
-This project can be deployed to any static hosting service like GitHub Pages, Vercel, Netlify, or any web server.
+### GitHub Pages Deployment
 
-For GitHub Pages deployment:
+1. **Push your code to your existing `my-portfolio` repository:**
 ```bash
-npm run build
-# Deploy the dist/ folder contents
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/my-portfolio.git
+git push -u origin main
+```
+
+2. **Enable GitHub Pages:**
+   - Go to your `my-portfolio` repository on GitHub
+   - Navigate to Settings → Pages
+   - Under "Source", select "GitHub Actions"
+
+3. **The GitHub Actions workflow is already created** (`.github/workflows/deploy.yml`)
+
+4. **Your site will be available at:** `https://vishnuvardhanreddy.me/` (using your custom domain)
+
+### Alternative Deployment Options
+
+- **Vercel:** Connect your GitHub repo and deploy automatically
+- **Netlify:** Drag & drop the `dist` folder or connect via Git
+- **Firebase Hosting:** Use Firebase CLI to deploy
 ```
