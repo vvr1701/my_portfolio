@@ -22,9 +22,9 @@ import profilePhoto from "@/assets/profile-photo.jpg";
 const Index = () => {
   const skills = {
     "Programming Languages": ["Python", "Java", "C", "JavaScript"],
-    "Web Development": ["Flask", "React", "Node.js"],
-    "Databases": ["MySQL", "DynamoDB", "SQL"],
-    "Tools & Platforms": ["Git/GitHub", "Linux", "Cloudinary", "Figma", "Bubble.io"],
+    "Web Development": ["Flask", "React", "Node.js","next.js","HTML", "CSS", "REST APIs"],
+    "Databases": ["MySQL", "DynamoDB", "SQL","PostgreSQL"],
+    "Tools & Platforms": ["Git/GitHub", "Linux", "Docker","AWS", "Figma", "Bubble.io"],
   };
 
   const projects = [
@@ -83,11 +83,13 @@ const Index = () => {
                 Vishnu Vardhan Reddy
               </h1>
               <p className="text-xl md:text-2xl text-white/90">
-                Building Scalable Web Solutions & APIs
+               Building Scalable Web Solutions & APIs | Passionate About Full-Stack Development
               </p>
               <p className="text-lg text-white/80 max-w-lg">
-                B.Tech CSE Student at KL University with a passion for backend development, 
-                scalable architectures, and solving complex technical challenges.
+              <p>
+             Backend Developer at <a href="https://thekaizenproject.ai" target="_blank" class="text-blue-500">thekaizenproject.ai</a> and B.Tech CSE student at KL University with expertise in both backend and frontend technologies. Passionate about creating end-to-end web solutions and solving complex technical challenges.
+              </p>
+
               </p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
                 <Button 
@@ -132,7 +134,7 @@ const Index = () => {
                   <span className="text-sm">LinkedIn</span>
                 </a>
                 <a 
-                  href="https://github.com"
+                  href="https://github.com/vvr1701"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/80 hover:text-white transition-smooth flex items-center gap-2"
@@ -343,7 +345,37 @@ const Index = () => {
             Education
           </h2>
           <Card className="p-8 shadow-card hover-lift">
-...
+            <div className="flex items-start gap-4">
+              <div className="p-3 gradient-primary rounded-lg">
+                <GraduationCap className="w-6 h-6 text-white" />
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground">
+                      B.Tech Computer Science Engineering
+                    </h3>
+                    <p className="text-lg text-primary font-semibold">
+                      KL University
+                    </p>
+                    <p className="text-muted-foreground">Vijayawada, India</p>
+                  </div>
+                  <Badge variant="secondary" className="text-sm px-3 py-1">
+                    2022 - 2026
+                  </Badge>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="font-semibold text-foreground">CGPA:</span>
+                    <Badge className="bg-primary text-primary-foreground">9.0/10</Badge>
+                  </div>
+                  <p className="text-foreground">
+                    Strong foundations in Data Structures, Algorithms, Object-Oriented Programming, 
+                    Operating Systems, and Database Management Systems.
+                  </p>
+                </div>
+              </div>
+            </div>
           </Card>
         </div>
       </section>
@@ -368,8 +400,8 @@ const Index = () => {
                     Content Creator
                   </h3>
                   <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-                    Creating engaging content around technology, programming, and software development. 
-                    Sharing knowledge and experiences through visual storytelling and educational posts.
+                    Creating engaging content around  Politics, Tech, and Youth issues
+                    Sharing knowledge and experiences through visual storytelling.
                   </p>
                 </div>
                 <div className="flex gap-4 pt-4">
@@ -444,8 +476,8 @@ const Index = () => {
                 Profile <ExternalLink className="w-3 h-3" />
               </p>
             </a>
-            <a 
-              href="https://github.com"
+            <a
+              href="https://github.com/vvr1701"
               target="_blank"
               rel="noopener noreferrer"
               className="p-6 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-smooth group"
@@ -470,22 +502,29 @@ const Index = () => {
             </a>
           </div>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button 
-              variant="hero" 
+            <Button
+              variant="hero"
               size="xl"
-              onClick={() => window.location.href = "mailto:vishnuvardhan1701@gmail.com"}
+              onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=vishnuvardhan1701@gmail.com', '_blank')}
             >
               <Mail className="mr-2" />
               Send Email
             </Button>
-            <Button 
-              variant="outline" 
-              size="xl"
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+            <a
+              href="/resume.pdf"
+              download="Vishnu_Vardhan_Reddy_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Download className="mr-2" />
-              Download Resume
-            </Button>
+              <Button
+                variant="outline"
+                size="xl"
+                className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+              >
+                <Download className="mr-2" />
+                Download Resume
+              </Button>
+            </a>
           </div>
         </div>
       </section>
