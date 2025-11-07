@@ -358,10 +358,10 @@ const Index = () => {
                     <p className="text-lg text-primary font-semibold">
                       KL University
                     </p>
-                    <p className="text-muted-foreground">Vijayawada, India</p>
+                    <p className="text-muted-foreground">Hyderabad, India</p>
                   </div>
                   <Badge variant="secondary" className="text-sm px-3 py-1">
-                    2022 - 2026
+                    2023 - 2027
                   </Badge>
                 </div>
                 <div className="space-y-3">
@@ -370,8 +370,19 @@ const Index = () => {
                     <Badge className="bg-primary text-primary-foreground">9.0/10</Badge>
                   </div>
                   <p className="text-foreground">
-                    Strong foundations in Data Structures, Algorithms, Object-Oriented Programming, 
-                    Operating Systems, and Database Management Systems.
+                Passionate about building efficient, scalable systems with strong foundations in:
+
+Data Structures & Algorithms: Solving complex problems with optimized solutions.
+
+Object-Oriented Programming: Designing modular, maintainable systems.
+
+Database Management: Expertise in MySQL, DynamoDB, and query optimization.
+
+Operating Systems & Networking: In-depth understanding of system-level concepts and network protocols.
+
+Web & Cloud Development: Hands-on experience with Flask, Node.js, AWS, and cloud-based solutions.
+
+Software Engineering & Agile: Familiar with SDLC, version control (Git), and collaborative development.
                   </p>
                 </div>
               </div>
@@ -425,11 +436,11 @@ const Index = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Code2 className="w-5 h-5 text-primary" />
-                    <span>Programming Tips</span>
+                    <span>Politics</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Video className="w-5 h-5 text-primary" />
-                    <span>Tutorial Videos</span>
+                    <span>Current Affairs</span>
                   </div>
                 </div>
               </div>
