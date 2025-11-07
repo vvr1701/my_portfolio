@@ -18,6 +18,7 @@ import {
   Camera
 } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import resumePdf from "@/assets/resume.pdf";
 
 const Index = () => {
   const skills = {
@@ -521,21 +522,17 @@ Software Engineering & Agile: Familiar with SDLC, version control (Git), and col
               <Mail className="mr-2" />
               Send Email
             </Button>
-            <a
-              href="/resume.pdf"
-              download="Vishnu_Vardhan_Reddy_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                size="xl"
-                className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+            <Button asChild variant="outline" size="xl" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+              <a
+                href={resumePdf}
+                download="Vishnu_Vardhan_Reddy_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Download className="mr-2" />
                 Download Resume
-              </Button>
-            </a>
+              </a>
+            </Button>
           </div>
         </div>
       </section>
