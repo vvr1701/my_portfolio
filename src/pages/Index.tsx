@@ -76,7 +76,7 @@ const Index = () => {
             <div className="text-center md:text-left space-y-6 animate-fade-in">
               <div className="inline-block">
                 <Badge variant="secondary" className="mb-4 text-sm px-4 py-2">
-                  Backend Developer
+                  Full stack Developer (Aspiring)
                 </Badge>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
