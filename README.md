@@ -1,6 +1,6 @@
-# Vishnu Vardhan Reddy - Backend Developer Portfolio
+# Vishnu Vardhan Reddy - Backend Engineer Portfolio
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS showcasing frontend development skills and projects.
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS showcasing backend engineering work and projects.
 
 ## Technologies Used
 
@@ -20,8 +20,8 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 1. Clone the repository:
 ```bash
-git clone <YOUR_GIT_URL>
-cd my-instant-show
+git clone https://github.com/vvr1701/my_portfolio.git
+cd my_portfolio
 ```
 
 2. Install dependencies:
