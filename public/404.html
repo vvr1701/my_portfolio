@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+    <!--
+      GitHub Pages serves this file for any path it can't find on disk.
+      Because the site is a client-side-routed SPA, we redirect back to the
+      entry point (index) and preserve the requested path in sessionStorage so
+      the router could restore it. Only "/" exists today, so the redirect to
+      the site root is the effective behaviour.
+    -->
+    <script>
+      (function () {
+        try {
+          sessionStorage.setItem("spaRedirectPath", location.pathname + location.search + location.hash);
+        } catch (e) {}
+        location.replace("/" + location.hash);
+      })();
+    </script>
+    <meta http-equiv="refresh" content="0; url=/" />
+  </head>
+  <body>
+    <p>Redirecting to <a href="/">vishnuvardhanreddy.me</a>…</p>
+  </body>
+</html>
