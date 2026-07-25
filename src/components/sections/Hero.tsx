@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Linkedin, Github, Download } from "lucide-react";
+import { DitherPhoto } from "@/components/DitherPhoto";
 import profile800 from "@/assets/profile-800.webp";
 import profile400 from "@/assets/profile-400.webp";
 import profileJpg from "@/assets/profile-400.jpg";
@@ -106,21 +107,14 @@ export const Hero = () => {
           <div className="flex justify-center md:justify-end" data-reveal>
             <div className="relative">
               <div className="absolute -inset-3 border border-brand/30 rounded-lg pointer-events-none" />
-              <picture>
-                <source
-                  type="image/webp"
-                  srcSet={`${profile400} 400w, ${profile800} 800w`}
-                  sizes="(max-width: 768px) 66vw, 400px"
-                />
-                <img
-                  src={profileJpg}
-                  width={800}
-                  height={800}
-                  alt="Vishnu Vardhan Reddy"
-                  loading="eager"
-                  className="relative w-64 h-64 md:w-[400px] md:h-[400px] object-cover object-top rounded-lg border border-border shadow-card grayscale-[0.15]"
-                />
-              </picture>
+              <DitherPhoto
+                sampleSrc={profile800}
+                fallbackSrc={profileJpg}
+                webpSrcSet={`${profile400} 400w, ${profile800} 800w`}
+                sizes="(max-width: 768px) 66vw, 400px"
+                alt="Vishnu Vardhan Reddy"
+                className="relative w-64 h-64 md:w-[400px] md:h-[400px] object-cover object-top rounded-lg border border-border shadow-card grayscale-[0.15] overflow-hidden"
+              />
             </div>
           </div>
         </div>
