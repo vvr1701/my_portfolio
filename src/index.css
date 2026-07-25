@@ -291,6 +291,36 @@
     /* grain is static already; nothing to disable */
   }
 
+  /* Architecture sequence nodes */
+  .arch-node circle {
+    fill: hsl(var(--muted));
+    stroke: hsl(var(--border));
+    stroke-width: 1.5;
+    transition: fill 0.4s var(--ease-out-expo), stroke 0.4s var(--ease-out-expo);
+  }
+  .arch-node text {
+    fill: hsl(var(--muted-foreground));
+    transition: fill 0.4s var(--ease-out-expo);
+  }
+  .arch-node.active circle {
+    fill: hsl(var(--brand));
+    stroke: hsl(var(--brand));
+  }
+  .arch-node.active text {
+    fill: hsl(var(--foreground));
+  }
+  .arch-connector {
+    stroke: hsl(var(--border));
+  }
+  .arch-trace {
+    stroke: hsl(var(--brand));
+    filter: drop-shadow(0 0 6px hsl(var(--brand) / 0.5));
+  }
+  .arch-tip {
+    fill: hsl(var(--brand));
+    filter: drop-shadow(0 0 8px hsl(var(--brand) / 0.7));
+  }
+
   /* Skip link */
   .skip-link {
     position: absolute;
