@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const skills = {
@@ -40,50 +39,53 @@ const skills = {
   ],
 };
 
+const csFundamentals = [
+  "Data Structures & Algorithms",
+  "Object-Oriented Design",
+  "DBMS",
+  "Operating Systems",
+  "Computer Networks",
+  "Recursion",
+  "Dynamic Programming",
+];
+
+const Chip = ({ label }: { label: string }) => (
+  <Badge
+    variant="outline"
+    className="px-3 py-1 text-xs font-normal text-muted-foreground border-border hover:border-brand/50 hover:text-foreground transition-smooth"
+  >
+    {label}
+  </Badge>
+);
+
 export const Skills = () => {
   return (
-    <section className="py-20 px-4 bg-muted/30" id="skills">
+    <section className="section-y px-6 bg-background" id="skills">
       <div className="container max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center">
-          Technical Skills
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <header className="mb-14" data-reveal>
+          <p className="eyebrow mb-3">04 — Skills</p>
+          <h2 className="text-title text-foreground">Technical Skills</h2>
+        </header>
+        <div className="grid md:grid-cols-2 gap-x-10 gap-y-10">
           {Object.entries(skills).map(([category, items], index) => (
-            <Card key={index} className="p-6 shadow-card hover-lift">
-              <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <span className="w-1 h-6 gradient-primary rounded"></span>
-                {category}
-              </h3>
+            <div key={index} data-reveal>
+              <h3 className="eyebrow mb-4 text-muted-foreground">{category}</h3>
               <div className="flex flex-wrap gap-2">
                 {items.map((skill, skillIndex) => (
-                  <Badge
-                    key={skillIndex}
-                    className="px-3 py-1 bg-primary text-primary-foreground hover:bg-primary/90"
-                  >
-                    {skill}
-                  </Badge>
+                  <Chip key={skillIndex} label={skill} />
                 ))}
               </div>
-            </Card>
+            </div>
           ))}
-        </div>
-        <Card className="mt-8 p-6 shadow-card hover-lift">
-          <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-            <span className="w-1 h-6 gradient-primary rounded"></span>
-            CS Fundamentals
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {["Data Structures & Algorithms", "Object-Oriented Design", "DBMS", "Operating Systems", "Computer Networks", "Recursion", "Dynamic Programming"].map((skill, index) => (
-              <Badge
-                key={index}
-                variant="secondary"
-                className="px-3 py-1"
-              >
-                {skill}
-              </Badge>
-            ))}
+          <div data-reveal>
+            <h3 className="eyebrow mb-4 text-muted-foreground">CS Fundamentals</h3>
+            <div className="flex flex-wrap gap-2">
+              {csFundamentals.map((skill, index) => (
+                <Chip key={index} label={skill} />
+              ))}
+            </div>
           </div>
-        </Card>
+        </div>
       </div>
     </section>
   );

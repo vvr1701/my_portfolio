@@ -1,60 +1,67 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, Linkedin, Github, ExternalLink, Download } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, ArrowUpRight, Download } from "lucide-react";
 import resumePdf from "@/assets/resume.pdf";
+
+const channels = [
+  {
+    Icon: Mail,
+    label: "Email",
+    value: "vishnuvardhan1701@gmail.com",
+    href: "mailto:vishnuvardhan1701@gmail.com",
+    external: false,
+  },
+  {
+    Icon: Phone,
+    label: "Phone",
+    value: "+91-7330951823",
+    href: "tel:+917330951823",
+    external: false,
+  },
+  {
+    Icon: Linkedin,
+    label: "LinkedIn",
+    value: "Profile",
+    href: "https://linkedin.com/in/vishnu-vardhan-dev",
+    external: true,
+  },
+  {
+    Icon: Github,
+    label: "GitHub",
+    value: "Projects",
+    href: "https://github.com/vvr1701",
+    external: true,
+  },
+];
 
 export const Contact = () => {
   return (
-    <section className="py-20 px-4 gradient-hero" id="contact">
+    <section className="section-y px-6 gradient-hero" id="contact">
       <div className="container max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6 text-white">
+        <p className="eyebrow mb-3" data-reveal>07 — Contact</p>
+        <h2 className="text-title text-foreground mb-6" data-reveal>
           Let's Connect
         </h2>
-        <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+        <p className="lead max-w-2xl mx-auto mb-12" data-reveal>
           I'm always open to discussing new opportunities, collaborations, or just having a chat about technology.
         </p>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-          <a
-            href="mailto:vishnuvardhan1701@gmail.com"
-            className="p-6 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-smooth group"
-          >
-            <Mail className="w-8 h-8 text-white mx-auto mb-3 group-hover:scale-110 transition-smooth" />
-            <p className="text-white font-semibold mb-1">Email</p>
-            <p className="text-white/70 text-sm break-all">vishnuvardhan1701@gmail.com</p>
-          </a>
-          <a
-            href="tel:+917330951823"
-            className="p-6 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-smooth group"
-          >
-            <Phone className="w-8 h-8 text-white mx-auto mb-3 group-hover:scale-110 transition-smooth" />
-            <p className="text-white font-semibold mb-1">Phone</p>
-            <p className="text-white/70 text-sm">+91-7330951823</p>
-          </a>
-          <a
-            href="https://linkedin.com/in/vishnu-vardhan-dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-6 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-smooth group"
-          >
-            <Linkedin className="w-8 h-8 text-white mx-auto mb-3 group-hover:scale-110 transition-smooth" />
-            <p className="text-white font-semibold mb-1">LinkedIn</p>
-            <p className="text-white/70 text-sm flex items-center justify-center gap-1">
-              Profile <ExternalLink className="w-3 h-3" />
-            </p>
-          </a>
-          <a
-            href="https://github.com/vvr1701"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-6 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-smooth group"
-          >
-            <Github className="w-8 h-8 text-white mx-auto mb-3 group-hover:scale-110 transition-smooth" />
-            <p className="text-white font-semibold mb-1">GitHub</p>
-            <p className="text-white/70 text-sm flex items-center justify-center gap-1">
-              Projects <ExternalLink className="w-3 h-3" />
-            </p>
-          </a>
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12" data-reveal>
+          {channels.map(({ Icon, label, value, href, external }) => (
+            <a
+              key={label}
+              href={href}
+              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="group p-6 rounded-lg border border-border bg-card/60 hover:bg-card hover:border-brand/40 transition-smooth"
+            >
+              <Icon className="w-7 h-7 text-brand mx-auto mb-3 transition-smooth group-hover:-translate-y-0.5" />
+              <p className="text-foreground font-medium mb-1">{label}</p>
+              <p className="text-muted-foreground text-sm flex items-center justify-center gap-1 break-all">
+                {value}
+                {external && <ArrowUpRight className="w-3 h-3 flex-shrink-0" />}
+              </p>
+            </a>
+          ))}
         </div>
-        <div className="flex flex-wrap gap-4 justify-center">
+        <div className="flex flex-wrap gap-4 justify-center" data-reveal>
           <Button
             variant="hero"
             size="xl"
@@ -63,7 +70,7 @@ export const Contact = () => {
             <Mail className="mr-2" />
             Send Email
           </Button>
-          <Button asChild variant="outline" size="xl" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+          <Button asChild variant="outline" size="xl">
             <a
               href={resumePdf}
               download="Vishnu_Vardhan_Reddy_Resume.pdf"

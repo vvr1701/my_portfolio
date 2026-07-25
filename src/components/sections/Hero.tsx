@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Mail, Phone, Linkedin, Github, Download } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profile800 from "@/assets/profile-800.webp";
+import profile400 from "@/assets/profile-400.webp";
+import profileJpg from "@/assets/profile-400.jpg";
 import resumePdf from "@/assets/resume.pdf";
 
 const scrollToSection = (id: string) => {
@@ -11,50 +12,47 @@ const scrollToSection = (id: string) => {
 
 export const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center gradient-hero px-4 py-20">
+    <section className="relative min-h-screen flex items-center gradient-hero px-6 py-24 overflow-hidden">
       <div className="container max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left space-y-6 animate-fade-in">
-            <div className="inline-block">
-              <Badge variant="secondary" className="mb-4 text-sm px-4 py-2">
-                Backend Engineer
-              </Badge>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+        <div className="grid md:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
+          <div className="text-center md:text-left">
+            <p className="eyebrow mb-5" data-reveal>
+              Backend Engineer
+            </p>
+            <h1
+              className="text-display text-foreground mb-6"
+              data-reveal
+            >
               Vishnu Vardhan Reddy
             </h1>
-            <p className="text-xl md:text-2xl text-white/90">
+            <p
+              className="font-display italic text-brand text-2xl md:text-3xl mb-6"
+              data-reveal
+            >
               I design and run production systems.
             </p>
-            <p className="text-lg text-white/80 max-w-lg">
+            <p className="lead max-w-lg mx-auto md:mx-0 mb-9" data-reveal>
               I'm a backend engineer and final-year CS student (Cyber Security
               specialization) at KL University, graduating 2027. Over the last year I
               built a learning platform serving 500+ users, and a SaaS product I shipped
               solo that now has paying customers in two countries.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start pt-4">
-              <Button
-                variant="hero"
-                size="xl"
-                onClick={() => scrollToSection("contact")}
-              >
+            <div
+              className="flex flex-wrap gap-4 justify-center md:justify-start"
+              data-reveal
+            >
+              <Button variant="hero" size="xl" onClick={() => scrollToSection("contact")}>
                 <Mail className="mr-2" />
                 Get In Touch
               </Button>
               <Button
                 variant="outline"
                 size="xl"
-                className="bg-white/10 border-white/30 text-white hover:bg-white/20"
                 onClick={() => scrollToSection("projects")}
               >
                 View Projects
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="xl"
-                className="bg-white/10 border-white/30 text-white hover:bg-white/20"
-              >
+              <Button asChild variant="ghost" size="xl">
                 <a
                   href={resumePdf}
                   download="Vishnu_Vardhan_Reddy_Resume.pdf"
@@ -66,17 +64,20 @@ export const Hero = () => {
                 </a>
               </Button>
             </div>
-            <div className="flex flex-wrap gap-6 justify-center md:justify-start pt-6">
+            <div
+              className="flex flex-wrap gap-7 justify-center md:justify-start pt-9"
+              data-reveal
+            >
               <a
                 href="mailto:vishnuvardhan1701@gmail.com"
-                className="text-white/80 hover:text-white transition-smooth flex items-center gap-2"
+                className="text-muted-foreground hover:text-brand transition-smooth flex items-center gap-2"
               >
                 <Mail className="w-5 h-5" />
                 <span className="text-sm">Email</span>
               </a>
               <a
                 href="tel:+917330951823"
-                className="text-white/80 hover:text-white transition-smooth flex items-center gap-2"
+                className="text-muted-foreground hover:text-brand transition-smooth flex items-center gap-2"
               >
                 <Phone className="w-5 h-5" />
                 <span className="text-sm">Phone</span>
@@ -85,7 +86,7 @@ export const Hero = () => {
                 href="https://linkedin.com/in/vishnu-vardhan-dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-white transition-smooth flex items-center gap-2"
+                className="text-muted-foreground hover:text-brand transition-smooth flex items-center gap-2"
               >
                 <Linkedin className="w-5 h-5" />
                 <span className="text-sm">LinkedIn</span>
@@ -94,21 +95,32 @@ export const Hero = () => {
                 href="https://github.com/vvr1701"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/80 hover:text-white transition-smooth flex items-center gap-2"
+                className="text-muted-foreground hover:text-brand transition-smooth flex items-center gap-2"
               >
                 <Github className="w-5 h-5" />
                 <span className="text-sm">GitHub</span>
               </a>
             </div>
           </div>
-          <div className="flex justify-center animate-fade-in">
+
+          <div className="flex justify-center md:justify-end" data-reveal>
             <div className="relative">
-              <div className="absolute inset-0 gradient-primary rounded-full blur-3xl opacity-30"></div>
-              <img
-                src={profilePhoto}
-                alt="Vishnu Vardhan Reddy"
-                className="relative rounded-full w-80 h-80 object-cover shadow-glow border-4 border-white/20"
-              />
+              <div className="absolute -inset-3 border border-brand/30 rounded-lg pointer-events-none" />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet={`${profile400} 400w, ${profile800} 800w`}
+                  sizes="(max-width: 768px) 66vw, 400px"
+                />
+                <img
+                  src={profileJpg}
+                  width={800}
+                  height={800}
+                  alt="Vishnu Vardhan Reddy"
+                  loading="eager"
+                  className="relative w-64 h-64 md:w-[400px] md:h-[400px] object-cover object-top rounded-lg border border-border shadow-card grayscale-[0.15]"
+                />
+              </picture>
             </div>
           </div>
         </div>

@@ -11,16 +11,21 @@ import { Footer } from "@/components/sections/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen grain">
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
       <ThemeToggle />
       <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Education />
-      <Certifications />
-      <Contact />
+      <main id="main">
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Education />
+        <Certifications />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

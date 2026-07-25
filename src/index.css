@@ -2,89 +2,152 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ============================================================
+   SELF-HOSTED FONTS  (latin, woff2 only, no third-party requests)
+   Display: Instrument Serif (400 + italic).  Body: Satoshi (400/500/700).
+   ============================================================ */
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/instrument-serif-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/instrument-serif-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/satoshi-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/satoshi-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Satoshi";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/satoshi-700.woff2") format("woff2");
+}
+/* Metric-adjusted fallback to minimise CLS while Satoshi loads */
+@font-face {
+  font-family: "Satoshi-fallback";
+  src: local("Arial");
+  size-adjust: 100.5%;
+  ascent-override: 96%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
 
+/* ============================================================
+   DESIGN TOKENS
+   Convention (shadcn): :root = light "paper", .dark = editorial near-black.
+   Dark is the default experience — an inline script in index.html adds
+   `.dark` unless the visitor has chosen light. All colours are HSL.
+   ============================================================ */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    /* — light "warm paper" — */
+    --background: 40 33% 94%;
+    --foreground: 24 14% 11%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 42 40% 97%;
+    --card-foreground: 24 14% 11%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 42 40% 97%;
+    --popover-foreground: 24 14% 11%;
 
-    --primary: 189 94% 43%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 189 94% 53%;
+    /* amber accent — deepened on paper so text/links pass AA */
+    --primary: 33 82% 40%;
+    --primary-foreground: 40 40% 97%;
 
-    --secondary: 222 47% 11%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 38 22% 88%;
+    --secondary-foreground: 24 14% 14%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 38 22% 89%;
+    --muted-foreground: 28 9% 38%;
 
-    --accent: 25 95% 53%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 38 24% 87%;
+    --accent-foreground: 24 14% 14%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 40 40% 97%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 189 94% 43%;
+    --border: 36 18% 82%;
+    --input: 36 18% 82%;
+    --ring: 33 82% 44%;
 
-    --radius: 0.75rem;
+    /* brand amber, held constant for accents/hairlines */
+    --brand: 33 82% 44%;
+    --brand-dim: 33 62% 40%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(189 94% 43%), hsl(189 94% 63%));
-    --gradient-accent: linear-gradient(135deg, hsl(25 95% 53%), hsl(25 95% 63%));
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 11%), hsl(222 47% 21%));
-    
-    --shadow-glow: 0 0 40px hsl(189 94% 43% / 0.3);
-    --shadow-card: 0 4px 24px hsl(222 47% 11% / 0.08);
-    
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius: 0.5rem;
+
+    /* motion */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    --gradient-hero: linear-gradient(180deg, hsl(40 33% 95%), hsl(38 26% 91%));
+    --gradient-primary: linear-gradient(135deg, hsl(36 80% 57%), hsl(33 62% 40%));
+    --gradient-accent: linear-gradient(135deg, hsl(36 80% 57%), hsl(33 82% 44%));
+
+    --shadow-glow: 0 0 48px hsl(33 82% 44% / 0.22);
+    --shadow-card: 0 10px 40px -12px hsl(24 20% 20% / 0.18);
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 0 0% 98%;
+    /* — editorial near-black — */
+    --background: 240 5% 4%;      /* #0A0A0B */
+    --foreground: 36 22% 91%;     /* #EDE9E3 warm off-white */
 
-    --card: 217 33% 17%;
-    --card-foreground: 0 0% 98%;
+    --card: 240 5% 7%;
+    --card-foreground: 36 22% 91%;
 
-    --popover: 217 33% 17%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 5% 7%;
+    --popover-foreground: 36 22% 91%;
 
-    --primary: 189 94% 53%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 189 94% 63%;
+    /* amber accent */
+    --primary: 36 80% 57%;        /* #E9A23B */
+    --primary-foreground: 240 6% 6%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 240 4% 12%;
+    --secondary-foreground: 36 22% 91%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 240 4% 11%;
+    --muted-foreground: 36 8% 55%; /* #96908A */
 
-    --accent: 25 95% 53%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 240 4% 14%;
+    --accent-foreground: 36 22% 91%;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 36 22% 91%;
 
-    --border: 217 33% 24%;
-    --input: 217 33% 24%;
-    --ring: 189 94% 53%;
+    --border: 36 10% 16%;
+    --input: 36 10% 18%;
+    --ring: 36 80% 57%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(189 94% 43%), hsl(189 94% 63%));
-    --gradient-accent: linear-gradient(135deg, hsl(25 95% 53%), hsl(25 95% 63%));
-    --gradient-hero: linear-gradient(135deg, hsl(217 33% 14%), hsl(217 33% 20%));
-    
-    --shadow-glow: 0 0 40px hsl(189 94% 53% / 0.4);
-    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.3);
+    --brand: 36 80% 57%;
+    --brand-dim: 36 62% 44%;
+
+    --gradient-hero: linear-gradient(180deg, hsl(240 5% 5%), hsl(240 6% 3%));
+    --gradient-primary: linear-gradient(135deg, hsl(36 80% 57%), hsl(36 62% 44%));
+    --gradient-accent: linear-gradient(135deg, hsl(36 80% 57%), hsl(33 70% 48%));
+
+    --shadow-glow: 0 0 60px hsl(36 80% 57% / 0.18);
+    --shadow-card: 0 24px 60px -20px hsl(240 10% 0% / 0.65);
   }
 }
 
@@ -93,45 +156,154 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
-  }
-
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Satoshi", "Satoshi-fallback", system-ui, -apple-system, sans-serif;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  /* Display headings default to the serif; hierarchy from size/tracking, not weight */
+  h1, h2, h3, .font-display {
+    font-family: "Instrument Serif", Georgia, "Times New Roman", serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  /* Focus-visible ring system — legible amber on near-black */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background: hsl(var(--brand) / 0.28);
+    color: hsl(var(--foreground));
+  }
+
+  /* Respect reduced motion globally: kill smooth scroll + all transitions/animations */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
+/* ============================================================
+   TYPOGRAPHY SCALE  (fluid — one scale covers desktop → mobile)
+   ============================================================ */
+@layer components {
+  .text-display {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 8.5vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+  .text-title {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+  .text-h3 {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+  .eyebrow {
+    font-family: "Satoshi", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: hsl(var(--brand));
+  }
+  .lead {
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    line-height: 1.6;
+    color: hsl(var(--muted-foreground));
+  }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
 @layer utilities {
-  .gradient-primary {
-    background: var(--gradient-primary);
-  }
-  
-  .gradient-accent {
-    background: var(--gradient-accent);
-  }
-  
-  .gradient-hero {
-    background: var(--gradient-hero);
+  .gradient-primary { background: var(--gradient-primary); }
+  .gradient-accent { background: var(--gradient-accent); }
+  .gradient-hero { background: var(--gradient-hero); }
+
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+
+  .transition-smooth { transition: var(--transition-smooth); }
+  .ease-expo { transition-timing-function: var(--ease-out-expo); }
+
+  .hover-lift { @apply transition-smooth hover:-translate-y-1; }
+  .hover-glow { @apply transition-smooth hover:shadow-glow; }
+
+  .text-brand { color: hsl(var(--brand)); }
+  .border-hairline { border-color: hsl(var(--border)); }
+
+  /* Section rhythm — generous, varied vertical space */
+  .section-y { padding-top: clamp(4.5rem, 11vw, 9rem); padding-bottom: clamp(4.5rem, 11vw, 9rem); }
+
+  /* Scroll-reveal initial state — applied pre-paint ONLY when motion is
+     eligible (see index.html). GSAP animates these to their final state.
+     If motion never runs, the `.motion` class is removed and content shows. */
+  .motion [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    will-change: opacity, transform;
   }
 
-  .shadow-glow {
-    box-shadow: var(--shadow-glow);
+  /* Grain overlay — ~4% opacity, fixed, never intercepts pointer */
+  .grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    /* grain is static already; nothing to disable */
   }
 
-  .shadow-card {
-    box-shadow: var(--shadow-card);
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-radius: var(--radius);
+    transition: top 0.2s var(--ease-out-expo);
   }
-
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
-
-  .hover-lift {
-    @apply transition-smooth hover:-translate-y-1;
-  }
-
-  .hover-glow {
-    @apply transition-smooth hover:shadow-glow;
+  .skip-link:focus {
+    top: 1rem;
   }
 }

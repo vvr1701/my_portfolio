@@ -1,6 +1,5 @@
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code2, ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
@@ -21,57 +20,56 @@ const projects = [
 
 export const Projects = () => {
   return (
-    <section className="py-20 px-4 bg-background" id="projects">
+    <section className="section-y px-6 bg-background" id="projects">
       <div className="container max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center">
-          Projects
-        </h2>
+        <header className="mb-14" data-reveal>
+          <p className="eyebrow mb-3">03 — Projects</p>
+          <h2 className="text-title text-foreground">Projects</h2>
+        </header>
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <Card
+            <article
               key={index}
-              className="p-6 shadow-card hover-lift hover-glow transition-smooth flex flex-col"
+              className="group relative rounded-lg border border-border bg-card p-8 shadow-card transition-smooth hover:border-brand/40 hover:-translate-y-1 flex flex-col"
+              data-reveal
             >
-              <div className="flex items-start gap-3 mb-4">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <Code2 className="w-5 h-5 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-foreground">
-                    {project.title}
-                  </h3>
-                  {project.status && (
-                    <Badge className="mt-2 bg-primary text-primary-foreground">
-                      {project.status}
-                    </Badge>
-                  )}
-                </div>
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <h3 className="text-h3 text-foreground">{project.title}</h3>
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${project.title} live site`}
+                    className="text-muted-foreground group-hover:text-brand transition-smooth flex-shrink-0 mt-1"
+                  >
+                    <ArrowUpRight className="w-6 h-6" />
+                  </a>
+                )}
               </div>
-              <p className="text-muted-foreground mb-4 leading-relaxed flex-1">
+              {project.status && (
+                <div className="mb-4">
+                  <span className="eyebrow inline-flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
+                    {project.status}
+                  </span>
+                </div>
+              )}
+              <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
                 {project.description}
               </p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech, techIndex) => (
                   <Badge
                     key={techIndex}
-                    variant="secondary"
-                    className="text-xs"
+                    variant="outline"
+                    className="text-xs font-normal text-muted-foreground border-border"
                   >
                     {tech}
                   </Badge>
                 ))}
               </div>
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary font-semibold flex items-center gap-1 hover:underline"
-                >
-                  Live site <ExternalLink className="w-4 h-4" />
-                </a>
-              )}
-            </Card>
+            </article>
           ))}
         </div>
       </div>
