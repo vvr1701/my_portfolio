@@ -69,9 +69,9 @@
     --popover: 42 40% 97%;
     --popover-foreground: 24 14% 11%;
 
-    /* amber accent — deepened on paper so text/links pass AA */
-    --primary: 33 82% 40%;
-    --primary-foreground: 40 40% 97%;
+    /* amber accent — dark text sits on amber fills; small accent text uses --brand */
+    --primary: 33 82% 42%;
+    --primary-foreground: 24 14% 11%;
 
     --secondary: 38 22% 88%;
     --secondary-foreground: 24 14% 14%;
@@ -89,9 +89,9 @@
     --input: 36 18% 82%;
     --ring: 33 82% 44%;
 
-    /* brand amber, held constant for accents/hairlines */
-    --brand: 33 82% 44%;
-    --brand-dim: 33 62% 40%;
+    /* brand amber for small accent text — deepened so it passes AA on paper */
+    --brand: 30 88% 34%;
+    --brand-dim: 30 70% 30%;
 
     --radius: 0.5rem;
 
@@ -289,6 +289,57 @@
   }
   @media (prefers-reduced-motion: reduce) {
     /* grain is static already; nothing to disable */
+  }
+
+  /* Custom cursor */
+  html.cursor-none,
+  html.cursor-none * {
+    cursor: none !important;
+  }
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 34px;
+    height: 34px;
+    margin: -17px 0 0 -17px;
+    border: 1.5px solid hsl(var(--brand));
+    border-radius: 9999px;
+    pointer-events: none;
+    z-index: 90;
+    opacity: 1;
+    transition: width 0.25s var(--ease-out-expo), height 0.25s var(--ease-out-expo),
+      margin 0.25s var(--ease-out-expo), background-color 0.25s var(--ease-out-expo),
+      opacity 0.3s ease;
+  }
+  .cursor-ring--active {
+    width: 52px;
+    height: 52px;
+    margin: -26px 0 0 -26px;
+    background: hsl(var(--brand) / 0.12);
+  }
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    margin: -2.5px 0 0 -2.5px;
+    border-radius: 9999px;
+    background: hsl(var(--foreground));
+    pointer-events: none;
+    z-index: 91;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Loader progress bar */
+  @keyframes loader-fill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  .loader-bar {
+    transform-origin: left;
+    animation: loader-fill 0.9s var(--ease-out-expo) forwards;
   }
 
   /* Architecture sequence nodes */

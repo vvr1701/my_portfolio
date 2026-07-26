@@ -1,4 +1,7 @@
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Loader } from "@/components/Loader";
+import { CustomCursor } from "@/components/CustomCursor";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
 import { Experience } from "@/components/sections/Experience";
@@ -13,12 +16,15 @@ import { Footer } from "@/components/sections/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen grain">
+      <Loader />
+      <ScrollProgress />
+      <CustomCursor />
       <a href="#main" className="skip-link">
         Skip to content
       </a>
       <ThemeToggle />
-      <Hero />
       <main id="main">
+        <Hero />
         <About />
         <Experience />
         <Projects />
