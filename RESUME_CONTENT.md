@@ -26,7 +26,7 @@
 
 ## Summary
 
-Final-year Computer Science student (Cyber Security specialization) and backend engineer.
+Final-year Computer Science student (Cyber Security specialization) and software developer.
 I design, build, and operate production systems end-to-end — REST APIs, asynchronous
 service architectures, containerized deployments, and the monitoring needed to keep them
 running. Shipped a live SaaS product with paying customers as the sole engineer.
@@ -109,7 +109,7 @@ Same facts, more room to breathe. Nothing here contradicts Part 1.
 
 ## Hero
 
-> **Vishnu Vardhan Reddy** — Backend Engineer
+> **Vishnu Vardhan Reddy** — Software Developer
 > I design and run production systems. Final-year CS student (Cyber Security
 > specialization) at KL University, graduating 2027.
 
@@ -117,7 +117,7 @@ Same facts, more room to breathe. Nothing here contradicts Part 1.
 
 ## About — short (~40 words)
 
-> I'm a backend engineer and final-year CS student in Hyderabad. I spent the last year
+> I'm a software developer and final-year CS student in Hyderabad. I spent the last year
 > building production systems — a learning platform serving 500+ users, and a SaaS
 > product I built solo that now has paying customers in two countries.
 

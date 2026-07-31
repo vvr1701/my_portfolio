@@ -85,7 +85,7 @@ confirm something from the code, it is listed as an open question rather than gu
 - **All copy is hard-coded in `src/pages/Index.tsx`.** Three data arrays live at the top — `skills` (`:24`), `projects` (`:64`), `certifications` (`:86`) — and everything else (hero, about paragraphs, experience bullets, contact) is inline JSX. **Copy and markup are in the same file with no separation.**
 - `RESUME_CONTENT.md` exists at repo root but is **not imported** by any component — it's a reference doc, not a data source.
 - **Stale content to flag:**
-  - `index.html:6-18` still describes the *old* positioning: title "Backend **Developer** Portfolio", description "skilled in Python, **Flask, MySQL, and DynamoDB**", keywords list, and `og:image`/`twitter:image` = `/placeholder.svg`. This contradicts the refreshed "Backend Engineer / FastAPI / SaaS" story now in the page body.
+  - `index.html:6-18` still describes the *old* positioning: title "Backend **Developer** Portfolio", description "skilled in Python, **Flask, MySQL, and DynamoDB**", keywords list, and `og:image`/`twitter:image` = `/placeholder.svg`. This contradicts the refreshed "Software Developer / FastAPI / SaaS" story now in the page body.
   - **`src/assets/resume.pdf` is not a PDF.** `file` reports `UTF-8 text` (3.4 KB). The hero and contact "Download Resume" buttons (`Index.tsx:151,432`) serve a file named `.pdf` that isn't one — the download is effectively broken.
 
 ### Assets & performance
