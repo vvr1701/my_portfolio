@@ -1,6 +1,6 @@
-# Vishnu Vardhan Reddy - Backend Engineer Portfolio
+# Vishnu Vardhan Reddy - Software Developer Portfolio
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS showcasing backend engineering work and projects.
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS showcasing software development work and projects.
 
 ## Technologies Used
 

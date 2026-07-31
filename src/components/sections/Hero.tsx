@@ -18,7 +18,7 @@ export const Hero = () => {
         <div className="grid md:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
           <div className="text-center md:text-left">
             <p className="eyebrow mb-5" data-reveal>
-              Backend Engineer
+              Software Developer
             </p>
             <h1
               className="text-display text-foreground mb-6"
@@ -33,7 +33,7 @@ export const Hero = () => {
               I design and run production systems.
             </p>
             <p className="lead max-w-lg mx-auto md:mx-0 mb-9" data-reveal>
-              I'm a backend engineer and final-year CS student (Cyber Security
+              I'm a software developer and final-year CS student (Cyber Security
               specialization) at KL University, graduating 2027. Over the last year I
               built a learning platform serving 500+ users, and a SaaS product I shipped
               solo that now has paying customers in two countries.
